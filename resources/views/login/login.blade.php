@@ -41,7 +41,6 @@
       <p>Forgot your password? <a href="index.html">Click here to reset it</a>.</p>
     </div>
   </section>
-
   <section class="about">
     <p class="about-links">
       <a href="https://www.designbombs.com/freebie/login-form" target="_parent">Download This Freebie</a>

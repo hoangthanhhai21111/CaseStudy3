@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customers;
+use App\Models\Oder;
 use Illuminate\Http\Request;
 
 class CustomersController extends Controller
@@ -14,8 +15,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customers::all();
-        return view('customer.index', compact('customers'));
+        $customers = Oder::all();
+        return view('home.index', compact('customers'));
     }
     /**
      * Show the form for creating a new resource.
@@ -55,7 +56,6 @@ class CustomersController extends Controller
         $route = Customers::find($id);
         return view('route.view', compact('route'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -64,10 +64,9 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-        $route = Customers::find($id);
-        return view('route.edit', compact('route'));
+        $customer = Customers::find($id);
+        return view('customer.edit', compact('customer'));
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -77,13 +76,16 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $route = Customers::find($id);
-        $route->departure = $request->departure;
-        $route->destination = $request->destination;
-        $route->save();
-        return redirect()->route('route.index');
+        $customer = Customers::find($id);
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->gender = $request->gender;
+        $customer->address = $request->address;
+        $customer->day_of_birth = $request->day_of_birth;
+        $customer->citizen_identification = $request->citizen_identification;
+        $customer->save();
+        return redirect()->route('customers.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *

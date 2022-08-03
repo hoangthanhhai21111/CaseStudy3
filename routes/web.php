@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\Flight_routeController;
 use App\Http\Controllers\flight_schedulesController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OderController;
 use App\Http\Controllers\PlaneController;
 use App\Http\Controllers\ResponsibleController;
 use App\Http\Controllers\userController;
@@ -69,8 +70,11 @@ Route::prefix('admin')->middleware(['auth', 'PreventBackHistory'])->group(functi
         Route::delete('{id}/delete', [customersController::class, 'destroy'])->name('customers.delete');
     });
 });
-Route::get('/', function () {
-    return view('home.index');
-});
-Route::prefix('home')->group(function () {
+// Route::get('/', function () {
+//     return view('home.index');
+// });
+Route::prefix('/')->group(function () { 
+    Route::prefix('/')->group(function () {
+        Route::get('/', [OderController::class, 'check'])->name('home.index');
+    });
 });
