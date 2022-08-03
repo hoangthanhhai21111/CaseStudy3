@@ -32,7 +32,7 @@
         
         </p>
         <p class="submit"><input type="submit" name="commit" value="đăng nhập">
-          <a href="{{route('register')}}"name="commit"value="đăng nhập">đăng ký</a>
+          {{-- <a href="{{route('register')}}"name="commit"value="đăng nhập">đăng ký</a> --}}
         </p>
       </form>
     </div>

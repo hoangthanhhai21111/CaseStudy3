@@ -13,19 +13,18 @@ class CustomersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {         
-        $routes= Customers::all();
-        return view('route.index', compact('routes'));
+    {
+        $customers = Customers::all();
+        return view('customer.index', compact('customers'));
     }
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        return view('route.create');
-
+        return view('customer.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -35,11 +34,15 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        $route = new Customers();
-        $route->departure= $request->departure;
-        $route->destination= $request->destination;
-        $route->save();
-        return redirect()->route('route.index');
+        $customer = new Customers();
+        $customer->name = $request->name;
+        $customer->phone = $request->phone;
+        $customer->gender = $request->gender;
+        $customer->address = $request->address;
+        $customer->day_of_birth = $request->day_of_birth;
+        $customer->citizen_identification = $request->citizen_identification;
+        $customer->save();
+        return redirect()->route('customers.index');
     }
     /**
      * Display the specified resource.
@@ -49,8 +52,8 @@ class CustomersController extends Controller
      */
     public function show($id)
     {
-        $route= Customers::find($id);
-        return view('route.view',compact('route'));
+        $route = Customers::find($id);
+        return view('route.view', compact('route'));
     }
 
     /**
@@ -61,8 +64,8 @@ class CustomersController extends Controller
      */
     public function edit($id)
     {
-       $route = Customers::find($id);
-        return view('route.edit',compact('route'));
+        $route = Customers::find($id);
+        return view('route.edit', compact('route'));
     }
 
     /**
@@ -74,9 +77,9 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $route= Customers::find($id);
-        $route->departure= $request->departure;
-        $route->destination= $request->destination;
+        $route = Customers::find($id);
+        $route->departure = $request->departure;
+        $route->destination = $request->destination;
         $route->save();
         return redirect()->route('route.index');
     }
@@ -89,7 +92,7 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        $route= Customers::findOrFail($id);
+        $route = Customers::findOrFail($id);
         $route->delete();
         return redirect()->route('route.index');
     }

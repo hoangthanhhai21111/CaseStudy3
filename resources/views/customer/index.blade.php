@@ -1,4 +1,4 @@
 @extends('master')
 @section('content')
-@include('user.content_index')
+    @include('customer.content_index')
 @endsection
