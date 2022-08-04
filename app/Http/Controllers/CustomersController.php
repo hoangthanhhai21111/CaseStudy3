@@ -15,8 +15,8 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Oder::all();
-        return view('home.index', compact('customers'));
+        $customers = Customers::all();
+        return view('customer.index', compact('customers'));
     }
     /**
      * Show the form for creating a new resource.

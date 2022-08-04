@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+	
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,7 +27,7 @@
 				{{-- <--form--> --}}
 				<div class="row">
 					<div class="booking-form">
-						<form method="post" action="{{route('home.result')}}">
+						<form method="get" action="{{route('home.result')}}">
 							@csrf
 							<div class="form-group">
 								<div class="form-checkbox">

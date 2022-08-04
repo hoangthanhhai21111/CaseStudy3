@@ -29,7 +29,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
                         <ul class="collapse">
                             <li><a href="{{route('customers.index')}}">khách hàng</a></li>
-                            <li><a href="linechart.html">line Chart</a></li>
+                            <li><a href="{{route('price.index')}}">giá vé</a></li>
                             <li><a href="piechart.html">pie chart</a></li>
                         </ul>
                     </li>

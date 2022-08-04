@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('customers', function (Blueprint $table) {
-           $table->dropColumn('id');
-        //    $table->
+        Schema::create('price', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('flight_schedule_id')->constrained('flight_schedules');
+            $table->string('price');
+            $table->timestamps();
         });
     }
 
@@ -26,8 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('customers', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('price');
     }
 };

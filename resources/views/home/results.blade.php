@@ -13,12 +13,6 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}" />
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/css/style.css') }}" />
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 </head>
 
 <body>
@@ -28,47 +22,48 @@
                 {{-- <--form--> --}}
                 <div class="row">
                     <div class="booking-form">
-                            <table class="table table-striped table">
-                                <thead>
-                                    <tr>
-                                        <th style="color: blue">STT</th>
-                                        <th style="color: blue">Nơi xuất phát</th>
-                                        <th style="color: blue">Đích đến</th>
-                                        <th style="color: blue">ngày bay</th>
-                                        <th style="color: blue">giờ bay</th>
-                                        <th style="color: rgb(221, 86, 14)">Thao tác</th>
-                                    </tr>
-                                    </thead>
-                                    <body>
-                                        @if(!count($results)==0)
-                                          @foreach($results as $key => $result)
+                        <table class="table table-striped table">
+                            <thead>
+                                <tr>
+                                    <th style="color: blue">STT</th>
+                                    <th style="color: blue">Nơi xuất phát</th>
+                                    <th style="color: blue">Đích đến</th>
+                                    <th style="color: blue">ngày bay</th>
+                                    <th style="color: blue">giờ bay</th>
+                                    <th style="color: rgb(221, 86, 14)">Thao tác</th>
+                                </tr>
+                            </thead>
+
+                            <body>
+                                @if (!count($results) == 0)
+                                    @foreach ($results as $key => $result)
                                         <tr>
                                             <td style="color: rgb(233, 17, 17)">
-                                                {{ ++$key}}
+                                                {{ ++$key }}
                                             </td>
                                             <td style="color: rgb(233, 17, 17)">
-                                                {{ $result->departure}}
+                                                {{ $result->departure }}
                                             </td>
                                             <td style="color: rgb(233, 17, 17)">
-                                                {{ $result->destination}}
+                                                {{ $result->destination }}
                                             </td>
                                             <td style="color: rgb(233, 17, 17)">
-                                                {{ $result->flight_date}}
+                                                {{ $result->flight_date }}
                                             </td>
                                             <td style="color: rgb(233, 17, 17)">
-                                                {{ $result->flight_time}}
+                                                {{ $result->flight_time }}
                                             </td>
-                                            <td style="color: rgb(233, 17, 17)">
+                                            <th style="color: rgb(233, 17, 17)">
                                                 <a href="" class=''>Đặt vé</a>
-                                            </td>
+                                            </th>
                                         </tr>
-                                        @endforeach
-                                         @else
-                                     <h1 style="text-align: center; color:aqua">không tìm thấy chuyến bay nào</h1>  
-                                        @endif
+                                    @endforeach
+                                @else
+                                    <h1 style="text-align: center; color:aqua">không tìm thấy chuyến bay nào</h1>
+                                @endif
 
-                                    </body>
-                            </table>
+                            </body>
+                        </table>
                     </div>
                 </div>
                 {{-- <--form--> --}}

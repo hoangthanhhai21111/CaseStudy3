@@ -12,9 +12,7 @@
             <tr>
                 <th>STT</th>
                 <th>Họ và tên</th>
-                <th>ngày sinh</th>
                 <th>giới tính</th>
-                <th>địa chỉ</th>
                 <th>Số điện thoại</th>
                 <th>số cmnd/cccd</th>
                 <th>Thao tác</th>
@@ -25,12 +23,9 @@
                 <tr>
                     <td>{{ ++$key }}</td>
                     <td>{{ $customer->name }}</td>
-                    <td>{{ $customer->day_of_birth }}</td>
                     <td>{{ $customer->gender }}</td>
-                    <td>{{ $customer->address }}</td>
                     <td>{{ $customer->phone }}</td>
                     <td>{{ $customer->citizen_identification }}</td>
-
                     <form action="{{ route('customers.delete', $customer->id) }}" method="post"
                         enctype="multipart/form">
                         <td>

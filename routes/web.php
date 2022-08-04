@@ -7,6 +7,7 @@ use App\Http\Controllers\flight_schedulesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OderController;
 use App\Http\Controllers\PlaneController;
+use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ResponsibleController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\App;
@@ -69,13 +70,20 @@ Route::prefix('admin')->middleware(['auth', 'PreventBackHistory'])->group(functi
         Route::put('{id}/update', [customersController::class, 'update'])->name('customers.update');
         Route::delete('{id}/delete', [customersController::class, 'destroy'])->name('customers.delete');
     });
+    Route::prefix('price')->middleware(['auth', 'PreventBackHistory'])->group(function () {
+        Route::get('/', [PriceController::class, 'index'])->name('price.index');
+        Route::get('create', [PriceController::class, 'create'])->name('price.create');
+        Route::post('store', [PriceController::class, 'store'])->name('price.store');
+        Route::get('{id}/show', [PriceController::class, 'show'])->name('price.show');
+        Route::get('{id}/edit', [PriceController::class, 'edit'])->name('price.edit');
+        Route::put('{id}/update', [PriceController::class, 'update'])->name('price.update');
+        Route::delete('{id}/delete', [PriceController::class, 'destroy'])->name('price.delete');
+    });
 });
-// Route::get('/', function () {
-//     return view('home.index');
-// });
 Route::prefix('/')->group(function () {
     Route::prefix('home')->group(function () {
         Route::get('/', [OderController::class, 'check'])->name('home.index');
-        Route::post('result', [OderController::class, 'result'])->name('home.result');
+        Route::get('result', [OderController::class, 'result'])->name('home.result');
+        
     });
 });
