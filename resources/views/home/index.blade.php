@@ -27,7 +27,8 @@
 				{{-- <--form--> --}}
 				<div class="row">
 					<div class="booking-form">
-						<form>
+						<form method="post" action="{{route('home.result')}}">
+							@csrf
 							<div class="form-group">
 								<div class="form-checkbox">
 									<label for="roundtrip">
@@ -48,21 +49,23 @@
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flying from</span>
-										<select name="" id="" class="form-control">
+										<select name="departure" id="" class="form-control">
 											@foreach($routes as $key => $route)
 											<option value="{{$route->departure}}">{{$route->departure}}</option>
 											@endforeach
 										</select>
+										<span class="select-arrow"></span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
 										<span class="form-label">Flyning to</span>
-										<select name="" id="" class="form-control">
+										<select name="destination" id="" class="form-control">
 											@foreach($routes as $key => $route)
-											<option value="{{$route->departure}}">{{$route->departure}}</option>
+											<option value="{{$route->destination}}">{{$route->destination}}</option>
 											@endforeach
 										</select>
+										<span class="select-arrow"></span>
 									</div>
 								</div>
 							</div>
@@ -70,13 +73,13 @@
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Departing</span>
-										<input class="form-control" type="date" required>
+										<input class="form-control" name='flight_date' type="date" required>
 									</div>
 								</div>
 								<div class="col-md-3">
 									<div class="form-group">
 										<span class="form-label">Returning</span>
-										<input class="form-control" type="date" required>
+										<input class="form-control" type="date">
 									</div>
 								</div>
 								<div class="col-md-2">

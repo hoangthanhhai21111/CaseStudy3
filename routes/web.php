@@ -73,8 +73,9 @@ Route::prefix('admin')->middleware(['auth', 'PreventBackHistory'])->group(functi
 // Route::get('/', function () {
 //     return view('home.index');
 // });
-Route::prefix('/')->group(function () { 
-    Route::prefix('/')->group(function () {
+Route::prefix('/')->group(function () {
+    Route::prefix('home')->group(function () {
         Route::get('/', [OderController::class, 'check'])->name('home.index');
+        Route::post('result', [OderController::class, 'result'])->name('home.result');
     });
 });
