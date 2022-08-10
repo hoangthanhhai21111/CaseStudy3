@@ -11,17 +11,17 @@
         <thead>
         <tr>
             <th>STT</th>
-            <th>nơi xuất phát</th>
-            <th>đích đến</th>
+            <th>chuyến bay</th>
+            <th>giá</th>
             <th>Thao tác</th>
         </tr>
         </thead>
         <tbody>
-            @foreach($prices as $key => $price)
+            @foreach($schedules as $key => $price)
         <tr>
             <td>{{++$key}}</td>
-            <td>{{$price->flight_schedule_id}}</td>
-            <td>{{$price->price}}</td>
+            <td>{{$price->departure}} =>{{$price->destination}} \\ {{$price->flight_date}} : {{$price->flight_time}}</td>
+            <td>{{$price->price}}.VNĐ</td>
             <td>
                 <form action="{{route('price.delete',$price->id )}}" method="post" enctype="multipart/form">
                 <a href="{{route('price.show',$price->id )}}"class="btn btn-info">Xem</a> 

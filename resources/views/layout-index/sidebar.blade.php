@@ -11,25 +11,24 @@
                     <li class="active">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>nhân sự</span></a>
                         <ul class="collapse">
-                            <li class="active"><a href="{{route('user.index')}}">nhan vien</a></li>
-                            <li><a href="{{route('plane.index')}}">máy bay</a></li>
-                            <li><a href="{{route('route.index')}}">đường bay</a></li>
+                            <li class="active"><a href="{{route('user.index')}}">danh sách nhân viên</a></li>
+                             
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                Types
-                            </span></a>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>sân bay</span></a>
                         <ul class="collapse">
+                            <li><a href="{{route('route.index')}}">đường bay</a></li>
+                            <li><a href="{{route('plane.index')}}">máy bay</a></li>
                             <li><a href="{{route('schedules.index')}}">lịch bay</a></li>
                             <li><a href="{{route('Responsible.index')}}">phụ trách chuyến bay</a></li>
+                            <li><a href="{{route('price.index')}}">giá vé</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>khách hàng</span></a>
                         <ul class="collapse">
-                            <li><a href="{{route('customers.index')}}">khách hàng</a></li>
-                            <li><a href="{{route('price.index')}}">giá vé</a></li>
+                            <li><a href="{{route('customers.index')}}">danh sách khách hàng</a></li>
                             <li><a href="piechart.html">pie chart</a></li>
                         </ul>
                     </li>

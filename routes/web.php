@@ -20,7 +20,7 @@ Route::prefix('login')->group(function () {
     Route::get('/', [LoginController::class, 'login'])->name('login');
     Route::post('/loginProcessing', [LoginController::class, 'loginProcessing'])->name('loginProcessing');
 });
-Route::prefix('admin')->middleware(['auth', 'PreventBackHistory'])->group(function () {
+Route::prefix('/')->middleware(['auth', 'PreventBackHistory'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index')->middleware(['auth', 'PreventBackHistory']);
     Route::prefix('/')->middleware(['auth', 'PreventBackHistory'])->group(function () {
         Route::resource('user', UserController::class);
@@ -84,6 +84,9 @@ Route::prefix('/')->group(function () {
     Route::prefix('home')->group(function () {
         Route::get('/', [OderController::class, 'check'])->name('home.index');
         Route::get('result', [OderController::class, 'result'])->name('home.result');
-        
+        Route::get('oder/{id}', [OderController::class, 'oder'])->name('home.oder');
+        Route::get('orderProcessing/{id}', [OderController::class, 'orderProcessing'])->name('home.orderProcessing');
+        Route::get('notification/{id}', [OderController::class, 'notification'])->name('home.notification');     
+        // Route::get('/{id}', [OderController::class, 'orders'])->name('home.orders');     
     });
 });
