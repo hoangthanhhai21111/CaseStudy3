@@ -21,16 +21,9 @@
             @enderror
             <br>
             chức vụ: <Select name="position" class="form-control">
-                <option value="nhân viên"> nhân viên</option>
-                <option value="giám đốc">giám đốc</option>
-                <option value="phó giám đốc"> phó giám đốc</option>
-                <option value="trường phòng"> phó giám đốc</option>
-                <option value="giám đốc"> phó giám đốc</option>
-                <option value="phi công">phi công</option>
-                <option value="tiếp viên trưởng">tiếp viên trưởng</option>
-                <option value="tiếp viên phó">tiếp viên phó</option>
-                <option value="tiếp viên">tiếp viên</option>
-                <option value="bảo vệ">bảo vệ</option>
+                @foreach ($position as $key => $value)
+                <option value="{{$value->position}}">{{$value->position}}</option>
+                @endforeach
             </Select>
             @error('position')
                 <p style="color:red">{{ $message }}</p>

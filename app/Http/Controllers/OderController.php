@@ -63,7 +63,7 @@ class OderController extends Controller
              return redirect()->route('home.notification',$oder_id);                                        
     }
     function notification($oder_id){
-        $results = DB::table('oders')
+        $notification = DB::table('oders')
         ->join('customers', 'oders.customer_id', '=', 'customers.id')
         ->join('flight_schedules', 'oders.flight_schedule_id', '=', 'flight_schedules.id')
         ->join('flight_route', 'flight_schedules.flight_route_id', '=', 'flight_route.id')
@@ -76,12 +76,16 @@ class OderController extends Controller
             'oders.id',
             'Price.price',
             'customers.name',
-            'customers.citizen_identification'
+            'customers.citizen_identification',
+            'customers.phone',
+            'customers.address',
+            'customers.gender',
+            'customers.day_of_birth'
         )
         ->where('oders.id', $oder_id)
         ->get();
-        dd($results);
+        // dd($results);
         
-        // return view('home.notification',compact(''));
+        return view('home.notification',compact('notification'));
     }
 }

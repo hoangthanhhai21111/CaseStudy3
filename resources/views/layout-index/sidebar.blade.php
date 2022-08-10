@@ -12,6 +12,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>nhân sự</span></a>
                         <ul class="collapse">
                             <li class="active"><a href="{{route('user.index')}}">danh sách nhân viên</a></li>
+                            <li class="active"><a href="{{route('Position.index')}}">các chức vụ</a></li>
                              
                         </ul>
                     </li>

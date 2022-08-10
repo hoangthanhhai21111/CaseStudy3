@@ -7,6 +7,7 @@ use App\Http\Controllers\flight_schedulesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OderController;
 use App\Http\Controllers\PlaneController;
+use App\Http\Controllers\PositionController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\ResponsibleController;
 use App\Http\Controllers\userController;
@@ -78,6 +79,15 @@ Route::prefix('/')->middleware(['auth', 'PreventBackHistory'])->group(function (
         Route::get('{id}/edit', [PriceController::class, 'edit'])->name('price.edit');
         Route::put('{id}/update', [PriceController::class, 'update'])->name('price.update');
         Route::delete('{id}/delete', [PriceController::class, 'destroy'])->name('price.delete');
+    });
+    Route::prefix('position')->middleware(['auth', 'PreventBackHistory'])->group(function () {
+        Route::get('/', [PositionController::class, 'index'])->name('Position.index');
+        Route::get('create', [PositionController::class, 'create'])->name('Position.create');
+        Route::post('store', [PositionController::class, 'store'])->name('Position.store');
+        Route::get('{id}/show', [PositionController::class, 'show'])->name('Position.show');
+        Route::get('{id}/edit', [PositionController::class, 'edit'])->name('Position.edit');
+        Route::put('{id}/update', [PositionController::class, 'update'])->name('Position.update');
+        Route::delete('{id}/delete', [PositionController::class, 'destroy'])->name('Position.delete');
     });
 });
 Route::prefix('/')->group(function () {

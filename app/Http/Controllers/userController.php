@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UserRequest;
+use App\Models\Position;
 
 class userController extends Controller
 {
@@ -15,7 +16,8 @@ class userController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {         
+    {     
+
         $users= User::all();
         return view('user.index', compact('users'));
         //
@@ -27,8 +29,9 @@ class userController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('user.create');
+    {   
+        $position = Position::all();
+        return view('user.create', compact('position'));
 
     }
 
